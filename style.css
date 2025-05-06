@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.game-container {
+    position: relative;
+    display: inline-block;
+}
+
+#sudoku-grid {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #000;
+    width: 450px;
+    height: 450px;
+    background-color: white;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.cell {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Add thicker borders for 3x3 subgrids */
+.cell[data-col="2"], .cell[data-col="5"] {
+    border-right: 2px solid #000;
+}
+
+.cell[data-col="3"], .cell[data-col="6"] {
+    border-left: 2px solid #000;
+}
+
+.row:nth-child(3) .cell, .row:nth-child(6) .cell {
+    border-bottom: 2px solid #000;
+}
+
+.row:nth-child(4) .cell, .row:nth-child(7) .cell {
+    border-top: 2px solid #000;
+}
+
+.prefilled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.selected {
+    background-color: #e6f7ff;
+}
+
+.error {
+    background-color: #ffcccb;
+}
+
+.success {
+    background-color: #c3e6cb;
+}
+
+.completed {
+    background-color: #d4edda;
+}
+
+.number-popup {
+    position: absolute;
+    display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+}
+
+.number-cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+}
+
+.number-cell:hover {
+    background-color: #e0e0e0;
+}
+
+.clear {
+    grid-column: 1 / span 3;
+    background-color: #f8d7da;
+}
+
+.exit {
+    grid-column: 2 / span 2;
+    background-color: #f8d7da;
+}
+
+.message-container {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.success-message {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
