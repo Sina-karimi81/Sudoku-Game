@@ -24,5 +24,7 @@ The game ends when you successfully fill all cells according to Sudoku rules.
 
 # File Structure
 **index.html**: HTML file containing the structure of the web page
+
 **style.css**: CSS file containing the stylings for the page
+
 **script.js**: JS file containing the logic to create the board and check for violations and when the game is finished
